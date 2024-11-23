@@ -5,7 +5,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report,ConfusionMatrixDisplay
 import os
 import matplotlib.pyplot as plt
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
+import dagshub
+dagshub.init(repo_owner='fahimai001', repo_name='dagshub_project', mlflow=True)
+mlflow.set_tracking_uri("https://dagshub.com/fahimai001/dagshub_project.mlflow")
+
 # Load the Iris dataset
 iris = load_iris()
 X = iris.data  # Features
